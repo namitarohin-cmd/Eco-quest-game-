@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Eco-Quest: Grow Your Tree 🌱</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; background: #eafbea; }
+    #tree { font-size: 80px; margin: 20px; }
+    button { margin: 10px; padding: 10px 20px; font-size: 16px; cursor: pointer; border-radius: 10px; }
+    .good { background-color: #4CAF50; color: white; }
+    .bad { background-color: #f44336; color: white; }
+  </style>
+</head>
+<body>
+  <h1>Eco-Quest 🌍</h1>
+  <p>Make eco-friendly choices to grow your tree!</p>
+
+  <div id="tree">🌱</div>
+  <p id="message"></p>
+
+  <button class="good" onclick="growTree('good')">Recycle Plastic</button>
+  <button class="good" onclick="growTree('good')">Plant a Tree</button>
+  <button class="bad" onclick="growTree('bad')">Throw Trash on Road</button>
+  <button class="bad" onclick="growTree('bad')">Waste Water</button>
+
+  <script>
+    let stage = 0;
+    const treeStages = ["🌱","🌿","🌳","🌳✨"];
+    
+    function growTree(choice) {
+      const msg = document.getElementById("message");
+      if(choice === "good" && stage < treeStages.length-1){
+        stage++;
+        msg.innerText = "Great choice! Your tree grew!";
+      } else if(choice === "bad") {
+        msg.innerText = "Oops! Bad choice, tree growth slowed!";
+      }
+      document.getElementById("tree").innerText = treeStages[stage];
+    }
+  </script>
+</body>
+</html>
